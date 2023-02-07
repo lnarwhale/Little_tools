@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "ascp_list | 用ascp下载SRR(可从ENA获取ascp下载地址) ｜1:文件名字(包后缀)"
+echo "name_mv | 用于批量改名 ｜ 1:文件名字(包缀)"
+echo "record_information | 用于记录分析数据的信息 ｜ readin"

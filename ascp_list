@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "the name of input file is "$1
+for name in $(cat $1);do
+	ascp -l 100M -P 33001 -QT -k 2 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@$name .
+done

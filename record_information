@@ -1,0 +1,41 @@
+#!/bin/bash
+read -p "记录的类型是(data/analysis)：" type_record 
+if [ $type_record == "analysis" ];then 
+	read -p "数据的类型是(rna-seq/cut-taq/...) " atype
+	read -p "数据的位置是(如果不想输入,输null) " location
+	read -p "样本的类型是(g1/s/胚胎/...) " analysis
+	read -p "分析的类型是 (单端/双端/单样本/...)" ana_type
+	read -p "分析的流程是 (from fastq to bw/...)" ana_pro
+
+	dir=$(pwd)
+	echo $dir
+	touch $dir/readme.txt
+	echo "time:             "$(date) >> $dir/readme.txt
+	echo "data_type:        "$atype >> $dir/readme.txt
+	echo "data_location:    "$location >> $dir/readme.txt
+	echo "type_sample:      "$analysis >> $dir/readme.txt
+	echo "type_analysis:    "$ana_type >> $dir/readme.txt
+	echo "process_analysis: "$ana_pro >> $dir/readme.txt
+
+	if [ $location != "null" ];then
+		touch $location/"analysis.txt"
+		echo "分析的原位置是在 "$dir >> $location/"analysis.txt"
+	fi
+fi
+if [ $type_record == "data" ];then
+	read -p "数据的类型是(bulk/singlecell) " btype
+	read -p "数据的方法类型是(rna-seq/cut-taq/...) " atype
+	read -p "样本的类型是(g1/s/胚胎/...) " analysis
+    dir=$(pwd)
+    echo $dir
+	touch $dir/data_re.txt
+	echo "time:             "$(date) >> $dir/data_re.txt
+    echo "data_type:        "$btype  >> $dir/data_re.txt
+	echo "data_method:      "$atype >> $dir/data_re.txt
+    echo "type_sample:      "$analysis >> $dir/data_re.txt
+fi
+
+
+
+
+

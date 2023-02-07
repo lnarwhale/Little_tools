@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "该功能用于批量改名"
+echo "改名文件中格式如下"
+echo "befor_name,after_name"
+echo "----------------------"
+echo "改名文件为"$1
+for name in $(cat $1);do 
+	mv ${name%,*} ${name#*,}
+done
